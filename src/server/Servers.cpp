@@ -17,7 +17,7 @@ Servers::Servers(ConfigDB &configDB) : _epoll_fds(-1), _server_fds(), _domain_to
 	_client_data(), _cgi_clients_childfd(), _client_time(), configDB_(configDB)
 {
 	servers = this;
-	stop_fd = -1;
+	_printRow = 0;
 	_cgi_clients = std::map<int, CgiClient*>();
 	_keyValues = configDB_.getKeyValue();
 	createServers();
@@ -153,8 +153,32 @@ int Servers::combineFds(int socket_fd){
 }
 
 
-void printRow(int width, int serverNum, int ipWidth, std::string ip) {
-	std::cout << "| " << std::left << std::setw(width) << serverNum << " | " << std::setw(ipWidth) << ip << " |" << std::endl;	
+// void printRow(int width, int serverNum, int ipWidth, std::string ip) {
+// 	std::cout << "| " << std::left << std::setw(width) << serverNum << " | " << std::setw(ipWidth) << ip << " |" << std::endl;	
+// }
+
+void	printLine(long unsigned int domainWidth){
+	std::cout << "+---------------+--------------------+";// << std::endl;
+	std::cout << "-";
+	for (unsigned long int i = 0; i < domainWidth; ++i) std::cout << "-";
+	std::cout << "-+" << std::endl;
+}
+
+void Servers::printRow(int width, int serverNum, int ipWidth, std::string ip, long unsigned int &domainWidth) {
+	std::string domainList;
+	for (std::vector<std::string>::iterator domain_it = _domain_to_server[_server_fds.back()].begin(); domain_it != _domain_to_server[_server_fds.back()].end(); ++domain_it)
+	{
+		domainList += *domain_it;
+		if (domain_it + 1 != _domain_to_server[_server_fds.back()].end())
+			domainList += ", ";
+	}
+	if (domainList.length() > domainWidth)
+        domainWidth = domainList.length();
+	if (_printRow++ == 0)
+		printLine(domainWidth);
+    std::cout << "| " << std::left << std::setw(width) << serverNum << " | " << std::setw(ipWidth) << ip << " |" << std::setw(domainWidth) << domainList << "  |" << std::endl;
+	printLine(domainWidth);
+	domainWidth = 18;
 }
 
 
@@ -166,10 +190,11 @@ void Servers::createServers() {
 
     const int serverNumberWidth = 15;
     const int portWidth = 20;
+	long unsigned int domainWidth = 18;
 
-    std::cout << BHWHITE << "+---------------+--------------------+" << std::endl;
-    std::cout << "| " << std::left << std::setw(serverNumberWidth - 2) << "Server ID" << " | " << std::setw(portWidth - 2) << "Port" << " |" << std::endl;
-    std::cout << "+---------------+--------------------+" << std::endl;
+    std::cout << BHWHITE << "+---------------+--------------------+--------------------+" << std::endl;
+	std::cout << "| " << std::left << std::setw(serverNumberWidth - 2) << "Server ID" << " | " << std::setw(portWidth - 2) << "Port" << " | " << std::setw(domainWidth - 2) << "Server Domain" << "   |" << std::endl;
+    // std::cout << "+---------------+--------------------+------------------+" << std::endl;
 
     for (std::vector<std::string>::iterator it2 = ports.begin(); it2 != ports.end(); it2++) {
         if (!checkSocket(*it2)) {
@@ -178,13 +203,11 @@ void Servers::createServers() {
                     _server_fds.pop_back();
                 else {
                     assignDomain(*it2, _server_fds.back());
-					printRow(serverNumberWidth - 2,_server_fds.back() - 3, portWidth - 2,_ip_to_server[_server_fds.back()]);
+    				printRow(serverNumberWidth - 2, _server_fds.back() - 3, portWidth - 2, _ip_to_server[_server_fds.back()], domainWidth);
                 }
             }
         }
     }
-
-    std::cout << "+---------------+--------------------+" << RESET << std::endl;
 }
 
 

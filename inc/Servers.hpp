@@ -36,8 +36,7 @@ class Servers {
 		std::map<int, CgiClient*> _cgi_clients;
 		std::map<int, int> _cgi_clients_childfd;
 		std::map<int, time_t> _client_time;
-
-		int stop_fd;
+		int	_printRow;
 			
 	public:
 		
@@ -74,6 +73,7 @@ class Servers {
 		void checkClientTimeout();
 		void setTimeout(int client_fd);
 		int handleIncomingCgi(int client_fd);
+		void printRow(int width, int serverNum, int ipWidth, std::string ip, long unsigned int &domainWidth);
 };
 
 #endif
