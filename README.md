@@ -1,5 +1,6 @@
 ## Webserv
 ## This is when you finally understand why a URL starts with HTTP
+![webserv](https://github.com/AlexLuthor135/webserv/assets/134649029/afa06f58-02f8-45cb-9d32-ab04d39f4745)
 
 This project is about writing your own HTTP server.
 You are able to test it with an actual browser.
@@ -122,4 +123,6 @@ For dynamic content generation, the server can interface with backend scripts or
 ## COLLABORATORS
 
 Big shoutout to my collaborators [Drey Oduwole](https://github.com/DreyWesson), [Marvellous Oduwole](https://github.com/codedmarve) and [Nikita Ovsiannik](https://github.com/novsiannn) for a tremendous job they did on this project.
+
+![webserv2](https://github.com/AlexLuthor135/webserv/assets/134649029/6ea5d028-e6c1-4775-9e8c-63e21e58bb2f)
 
