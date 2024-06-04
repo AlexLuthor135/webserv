@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   HttpResponse.hpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: doduwole <doduwole@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alappas <alappas@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/01 10:42:26 by doduwole          #+#    #+#             */
-/*   Updated: 2024/06/01 14:06:58 by doduwole         ###   ########.fr       */
+/*   Created: 2024/06/04 20:56:31 by alappas           #+#    #+#             */
+/*   Updated: 2024/06/04 20:56:33 by alappas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

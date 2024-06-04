@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RequestConfig.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: doduwole <doduwole@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alappas <alappas@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/01 10:43:16 by doduwole          #+#    #+#             */
-/*   Updated: 2024/06/01 14:07:08 by doduwole         ###   ########.fr       */
+/*   Created: 2024/06/04 20:56:50 by alappas           #+#    #+#             */
+/*   Updated: 2024/06/04 20:56:52 by alappas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

@@ -3,13 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: doduwole <doduwole@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alappas <alappas@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/01 10:47:12 by doduwole          #+#    #+#             */
-/*   Updated: 2024/06/01 10:47:14 by doduwole         ###   ########.fr       */
+/*   Created: 2024/06/04 20:57:24 by alappas           #+#    #+#             */
+/*   Updated: 2024/06/04 20:57:26 by alappas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "./inc/AllHeaders.hpp"
 
